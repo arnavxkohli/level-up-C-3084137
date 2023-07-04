@@ -1,11 +1,24 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 char *ordinal(int v)
 {
-	/*
-	   - create this function
-	   - this code won't run with out it!
-	 */
+	int modulo = v % 10;
+	char *returnval = malloc(3);
+
+	if(v>10 && v<21){
+		strcpy(returnval, "th");
+	} else if(modulo == 1){
+		strcpy(returnval, "st");
+	} else if(modulo == 2){
+		strcpy(returnval, "nd");
+	} else if(modulo == 3){
+		strcpy(returnval, "rd");
+	} else {
+		strcpy(returnval, "th");
+	}
+	return returnval;
 }
 
 int main()
